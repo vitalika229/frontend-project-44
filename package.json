@@ -1,0 +1,19 @@
+{
+  "name": "frontend-project-44",
+  "version": "1.0.0",
+  "description": "[![Actions Status](https://github.com/vitalika229/frontend-project-44/workflows/hexlet-check/badge.svg)](https://github.com/vitalika229/frontend-project-44/actions)",
+  "main": "index.js",
+  "type": "module",
+  "bin": {
+    "frontend-project-44": "bin/brain-games.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "make": "^0.8.1",
+    "readline-sync": "^1.4.10"
+  }
+}
