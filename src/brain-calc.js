@@ -2,49 +2,49 @@
 import readlineSync from 'readline-sync';
 
 // eslint-disable-next-line consistent-return
-export default function calc() {
+export default function calculator() {
   console.log('Welcome to the Brain Games!');
-  const nameAnswer = readlineSync.question('May I have your name?: ');
-  console.log(`Hello, ${nameAnswer}!`);
+  const name = readlineSync.question('May I have your name?: ');
+  console.log(`Hello, ${name}!`);
   console.log('What is the result of the expression?');
 
-  let matches = 1;
-  while (matches <= 3) {
-    let linterAnswer;
+  let rounds = 1;
+  while (rounds <= 3) {
+    let roundAnswer;
     let calculatorSign;
 
-    const floor = 0;
-    const top = 50;
-    const num1 = `${Math.floor(Math.random() * (top - floor) + floor)}`;
-    const num2 = `${Math.floor(Math.random() * (top - floor) + floor)}`;
+    const minNum = 0;
+    const maxNum = 50;
+    const randomNumbers1 = `${Math.floor(Math.random() * (maxNum - minNum) + minNum)}`;
+    const randomNumbers2 = `${Math.floor(Math.random() * (maxNum - minNum) + minNum)}`;
 
     const values = ['+', '-', '*'];
 
     // eslint-disable-next-line max-len, no-inner-declarations, no-shadow
     function random(values) { const radious = Math.floor(Math.random() * values.length); return values[radious]; }
 
-    const randomSign = random(values);
-    const example = `${num1} ${randomSign} ${num2}`;
+    const randomExample = random(values);
+    const example = `${randomNumbers1} ${randomExample} ${randomNumbers2}`;
     console.log(`Question: ${example}`);
 
-    if (randomSign === '+') {
-      calculatorSign = `${(num1 * 1) + (num2 * 1)}`;
-    } else if (randomSign === '*') {
-      calculatorSign = `${num1 * num2}`;
-    } else { calculatorSign = `${num1 - num2}`; }
+    if (randomExample === '+') {
+      calculatorSign = `${(randomNumbers1 * 1) + (randomNumbers2 * 1)}`;
+    } else if (randomExample === '*') {
+      calculatorSign = `${randomNumbers1 * randomNumbers2}`;
+    } else { calculatorSign = `${randomNumbers1 - randomNumbers2}`; }
 
     const userAnswer = readlineSync.question('Your answer: ');
 
     if (userAnswer === calculatorSign) {
-      linterAnswer = 'Correct!';
+      roundAnswer = 'Correct!';
     } else {
       console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${calculatorSign}'."`);
-      return console.log(`Let's try again, ${nameAnswer}!`);
+      return console.log(`Let's try again, ${name}!`);
     }
 
-    if (linterAnswer !== 'Correct!') { matches = 0; }
-    console.log(linterAnswer);
-    matches += 1;
+    if (roundAnswer !== 'Correct!') { rounds = 0; }
+    console.log(roundAnswer);
+    rounds += 1;
   }
-  console.log(`Congratulations, ${nameAnswer}!`);
+  console.log(`Congratulations, ${name}!`);
 }
